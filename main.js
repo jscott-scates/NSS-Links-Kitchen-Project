@@ -17,7 +17,7 @@ const cook = (firstIngredient, secondIngredient) => {
 }*/
 
 
-const cook = (firstIngredient, secondIngredient, thirdIngredient = null, fourthIngredient=null) => {
+const cook = (firstIngredient, secondIngredient, thirdIngredient = null, fourthIngredient=null) => { //used pre-defined parameters so that recipes calling for only two ingredients would work.
     for (const recipe of database.recipes) {
         let firstIngCheck = firstIngredient === recipe.ingOne || firstIngredient === recipe.ingTwo || firstIngredient === recipe.ingThree || firstIngredient === recipe.ingFour
 
@@ -39,10 +39,10 @@ const cook = (firstIngredient, secondIngredient, thirdIngredient = null, fourthI
             let dishName = recipe.rName
             meals.push(dishName) 
         }
-    }
+    }//just a thought but, what kind of loop could I use to do this? It's lots of repetitive logic 
 }
 
-cook(database.materials[7].matName, database.materials[8].matName, database.materials[6].matName)
+cook(database.materials[7].matName, database.materials[8].matName, database.materials[6].matName) //".matName" is needed to access the materials relevant name property. 
 
 console.log('MEALS:')
 console.log('---------------')
